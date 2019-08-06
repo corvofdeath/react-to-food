@@ -1,7 +1,7 @@
 export interface Food {
 	id: string;
 	title: string;
-	price: string;
+	price: number;
 	cuisine: string;
 }
 

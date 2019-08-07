@@ -9,6 +9,7 @@ import FoodList from '../components/food/food-list';
 import { AppRoutes } from '../routes';
 import Filter from '../components/filter';
 import { AppState } from '../redux/store';
+import Cart from '../components/cart';
 
 const Index: NextPage = () => {
 	const foods = useSelector((state: AppState) => state.filter.foods);
@@ -23,7 +24,9 @@ const Index: NextPage = () => {
 						<Col sm="6">
 							<FoodList foods={foods} />
 						</Col>
-						<Col sm="4" />
+						<Col sm="6">
+							<Cart />
+						</Col>
 					</Row>
 				</Layout>
 			</Container>

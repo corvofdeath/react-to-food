@@ -2,9 +2,10 @@ import React, { FunctionComponent } from 'react';
 import { Row, Col, Card, CardBody, CardTitle, CardSubtitle, CardText, CardLink } from 'reactstrap';
 import styled from 'styled-components';
 
-import { Food } from '../../redux/cart/types';
+import { Food, ADD_FOOD } from '../../redux/cart/types';
 import foodIcon from '../../assets/img/food-icon.png';
 import '../../assets/scss/index.scss';
+import { useDispatch } from 'react-redux';
 
 interface FoodItemProps {
 	food: Food;
@@ -13,6 +14,8 @@ interface FoodItemProps {
 const DivStyle = styled.div`padding: 10px;`;
 
 const FoodItem: FunctionComponent<FoodItemProps> = ({ food }) => {
+	const dispatch = useDispatch();
+
 	return (
 		<div id="app-food-item">
 			<Card>
@@ -32,7 +35,15 @@ const FoodItem: FunctionComponent<FoodItemProps> = ({ food }) => {
 								<strong>Cuisine: </strong>
 								{food.cuisine}
 							</CardText>
-							<CardLink href="#">Add</CardLink>
+							<CardLink
+								href="#"
+								onClick={(e) => {
+									e.preventDefault();
+									dispatch({ type: ADD_FOOD, payload: food });
+								}}
+							>
+								Add
+							</CardLink>
 						</CardBody>
 					</Col>
 				</Row>

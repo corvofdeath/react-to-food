@@ -21,14 +21,14 @@ const FoodItem: FunctionComponent<FoodItemProps> = ({ food }) => {
 						<CardBody>
 							<CardTitle>{food.title}</CardTitle>
 							<CardSubtitle>
-								<strong>Preço: </strong> <span>R$ </span>
+								<strong>Price: </strong> <span>R$ </span>
 								{food.price}
 							</CardSubtitle>
 							<CardText>
-								<strong>Categoria: </strong>
+								<strong>Cuisine: </strong>
 								{food.cuisine}
 							</CardText>
-							<CardLink href="#">Adicionar</CardLink>
+							<CardLink href="#">Add</CardLink>
 						</CardBody>
 					</Col>
 				</Row>

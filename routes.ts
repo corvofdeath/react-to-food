@@ -3,11 +3,11 @@ import { NavBarProps } from './components/navbar';
 export const AppRoutes: NavBarProps = {
 	routes: [
 		{
-			name: 'Inicio',
+			name: 'Home',
 			path: '/'
 		},
 		{
-			name: 'Sobre',
+			name: 'About',
 			path: '/about'
 		}
 	]

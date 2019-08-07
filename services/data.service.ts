@@ -13,7 +13,7 @@ class DataService {
 	}
 
 	get cuisine () {
-		return [ 'salad', 'pizza', 'chinese', 'beverage', 'burguers' ];
+		return [ 'all', 'salad', 'pizza', 'chinese', 'beverage', 'burguers' ];
 	}
 }
 

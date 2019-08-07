@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import React from 'react';
-import { Container } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import { useSelector } from 'react-redux';
 
 import Layout from '../components/layout';
@@ -19,7 +19,12 @@ const Index: NextPage = () => {
 			<Container>
 				<Layout title="React To Food | Delivery" appRoutes={AppRoutes}>
 					<Filter filters={foodTypes} />
-					<FoodList foods={foods} />
+					<Row>
+						<Col sm="6">
+							<FoodList foods={foods} />
+						</Col>
+						<Col sm="4" />
+					</Row>
 				</Layout>
 			</Container>
 		</div>

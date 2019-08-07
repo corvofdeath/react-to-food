@@ -9,15 +9,19 @@ import '../../assets/scss/index.scss';
 interface FoodItemProps {
 	food: Food;
 }
+
+const DivStyle = styled.div`padding: 10px;`;
+
 const FoodItem: FunctionComponent<FoodItemProps> = ({ food }) => {
 	return (
 		<div id="app-food-item">
 			<Card>
 				<Row>
-					<Col sm="2" className="align-center">
+					<Col sm="2" className="align-center image-center">
 						<img className="food-img" src={foodIcon} />
 					</Col>
-					<Col sm="10">
+					<DivStyle />
+					<Col sm="9">
 						<CardBody>
 							<CardTitle>{food.title}</CardTitle>
 							<CardSubtitle>

@@ -11,6 +11,10 @@ class DataService {
 	get foodList () {
 		return this.foods;
 	}
+
+	get cuisine () {
+		return [ 'salad', 'pizza', 'chinese', 'beverage', 'burguers' ];
+	}
 }
 
 const singleton = new DataService();

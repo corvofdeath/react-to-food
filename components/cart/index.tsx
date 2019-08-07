@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { AppState } from '../../redux/store';
 import { REMOVE_FOOD } from '../../redux/cart/types';
+import CartList from './cart-list';
 
 const CardStyle = styled.div`background: #f7f3f3;`;
 const DivStyle = styled.div`padding: 5px;`;
@@ -33,34 +34,25 @@ const Cart: FunctionComponent = () => {
 							<Col sm="2" />
 						</Row>
 						<DivStyle />
-						{items.map((food) => {
-							return (
-								<Row key={food.id}>
-									<Col sm="6">
-										<CardText>{food.title}</CardText>
-									</Col>
-									<Col sm="2" className="align-right">
-										<CardText>{food.qtd}</CardText>
-									</Col>
-									<Col sm="3" className="align-right">
-										<CardText>
-											R$ <span>{food.price * (food.qtd ? food.qtd : 1)}</span>
-										</CardText>
-									</Col>
-									<Col sm="1">
-										<CardLink
-											href="#"
-											onClick={(e) => {
-												e.preventDefault();
-												dispatch({ type: REMOVE_FOOD, payload: { id: food.id } });
-											}}
-										>
-											X
-										</CardLink>
-									</Col>
-								</Row>
-							);
-						})}
+						<CartList foods={items} />
+						<DivStyle />
+						<hr />
+						{items.length > 0 && (
+							<Row>
+								<Col className="align-right">
+									<CardText>
+										R${' '}
+										<span>
+											{items
+												.map((food) => food.price * (food.qtd ? food.qtd : 1))
+												.reduce((accumulator, next) => accumulator + next)
+												.toFixed(2)}
+										</span>
+									</CardText>
+								</Col>
+								<Col sm="1" />
+							</Row>
+						)}
 						<DivStyle />
 						<Row>
 							<Col className="align-center">

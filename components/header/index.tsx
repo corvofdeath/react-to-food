@@ -10,7 +10,7 @@ interface HeaderProps {
 
 const HeaderStyle = styled.div`
 	text-align: center;
-	padding-top: 50px;
+	padding-top: 20px;
 `;
 
 const TitleStyle = styled.h1`font-family: fantasy;`;

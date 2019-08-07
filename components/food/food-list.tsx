@@ -12,7 +12,7 @@ interface FoodListProps {
 const FoodList: FunctionComponent<FoodListProps> = ({ foods }) => {
 	return (
 		<div id="app-food-list">
-			<Row>
+			<Row className="scroll-items">
 				<Col>
 					<div id="app-food-item">
 						{foods.map((food) => {

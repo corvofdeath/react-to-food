@@ -3,6 +3,7 @@ export interface Food {
 	title: string;
 	price: number;
 	cuisine: string;
+	qtd?: number;
 }
 
 export interface CartState {

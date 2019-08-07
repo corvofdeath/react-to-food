@@ -1,15 +1,17 @@
 import React, { FunctionComponent } from 'react';
 import { Card, CardBody, CardTitle, CardLink, CardText, Row, Col, Button } from 'reactstrap';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { AppState } from '../../redux/store';
+import { REMOVE_FOOD } from '../../redux/cart/types';
 
 const CardStyle = styled.div`background: #f7f3f3;`;
 const DivStyle = styled.div`padding: 5px;`;
 
 const Cart: FunctionComponent = () => {
 	const items = useSelector((state: AppState) => state.cart.foods);
+	const dispatch = useDispatch();
 
 	return (
 		<div id="app-cart">
@@ -33,20 +35,26 @@ const Cart: FunctionComponent = () => {
 						<DivStyle />
 						{items.map((food) => {
 							return (
-								<Row>
+								<Row key={food.id}>
 									<Col sm="6">
 										<CardText>{food.title}</CardText>
 									</Col>
 									<Col sm="2" className="align-right">
-										<CardText>1</CardText>
+										<CardText>{food.qtd}</CardText>
 									</Col>
 									<Col sm="3" className="align-right">
 										<CardText>
-											R$ <span>15.00</span>
+											R$ <span>{food.price * (food.qtd ? food.qtd : 1)}</span>
 										</CardText>
 									</Col>
 									<Col sm="1">
-										<CardLink href="#" onClick={(e) => e.preventDefault()}>
+										<CardLink
+											href="#"
+											onClick={(e) => {
+												e.preventDefault();
+												dispatch({ type: REMOVE_FOOD, payload: { id: food.id } });
+											}}
+										>
 											X
 										</CardLink>
 									</Col>
